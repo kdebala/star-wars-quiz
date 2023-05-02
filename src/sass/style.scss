@@ -1,0 +1,112 @@
+//@use '../sass/' as *;
+
+@import '../sass/nav';
+@import '../sass/gameRules';
+@import '../sass/ranking';
+@import '../sass/reset';
+@import '../sass/reusable';
+@import '../sass/timerPanel';
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-image: url('../assets/galaxy.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.app {
+  border: 5 solid red;
+}
+
+.game-panel {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr;
+  margin: 2rem;
+  grid-template-areas: 'img game';
+  column-gap: 4rem;
+
+  .img-container {
+    grid-area: img;
+    width: 100%;
+    height: 100%;
+
+
+    .img-item {
+      height: max-content;
+    }
+  }
+
+  .game-container {
+    grid-area: game;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 5fr 1fr;
+    gap: 5rem;
+    grid-template-areas:
+      'headerEl headerEl'
+      'mode-rules mode-rules'
+      'btn btn';
+  }
+
+  .headerEl {
+    @include border;
+    background-color: aliceblue;
+    font-size: 3rem;
+    width: 100%;
+    grid-area: headerEl;
+    align-self: center;
+    height: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    @media (min-width:2100px) {
+      height: 12rem;
+      font-size: 5rem;
+    }
+
+
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    grid-area: btn;
+
+
+    .btn {
+      display: inline;
+      width: 80%;
+      //gap: 1px;
+      height: 100%;
+      font-family: inherit;
+      padding: 1rem;
+      cursor: pointer;
+      border-radius: 1.6rem;
+
+      @media (min-width:2100px) {
+        font-size: 4rem;
+      }
+
+      &.play {
+        background: rgba(255, 0, 0, 0.8);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        text-transform: uppercase;
+        margin-left: 1rem;
+      }
+
+      &:hover {
+        @include border;
+        transform: translate(0, -0.1rem);
+        transition: all 0.1s ease-in-out;
+      }
+    }
+  }
+
+}
