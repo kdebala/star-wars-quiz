@@ -1,22 +1,19 @@
 import './_game';
 import '../sass/style.scss';
-// import { createGame } from './_builder';
-// import { gameMode } from './_defaults';
-// createGame(gameMode);
-import { nav, rankingRulesBtn } from './_consts';
-// const nav = document.querySelector('.nav');
-// export const navItem = document.querySelectorAll('.nav__item');
-import { chooseNavMode, rulesRankingChanger } from './_actions';
+import { nav, rankingRulesBtn, playGameBtn } from './_consts';
+import { chooseNavMode, rulesRankingChanger, playGame } from './_actions';
+import { gameMode } from './_defaults';
+import { generateGameContent } from './_functions';
 
+generateGameContent(gameMode);
 nav?.addEventListener('click', function (e) {
   chooseNavMode(e);
-  //   console.log('h');
 });
 
 rankingRulesBtn?.addEventListener('click', function () {
   rulesRankingChanger();
 });
 
-// playGameBtn?.addEventListener('click', function () {
-//   //playGame();
-// });
+playGameBtn?.addEventListener('click', function () {
+  playGame(gameMode);
+});
