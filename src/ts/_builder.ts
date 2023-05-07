@@ -1,5 +1,4 @@
-//import { rankingRulesBtn } from './_consts';
-import { Mode, answer } from './_defaults';
+import { Mode } from './_defaults';
 import logoSrc from '../assets/logo.svg';
 import chewbaccaSrc from '../assets/chewbacca.jpg';
 import rulesIconSrc from '../assets/rules.svg';
@@ -8,16 +7,12 @@ import rankingImg from '../assets/ranking.svg';
 const app = document.querySelector('.app');
 
 export const createGame = (gameMode: Mode) => {
-  console.log(`gameMode: ${gameMode}`);
-
-  createNavPanel(gameMode);
+  createNavPanel();
   createGamePanel(gameMode);
   createTimerPanel();
 };
 
-const createNavPanel = (gameMode: Mode) => {
-  console.log(`create: NavPanel`);
-
+const createNavPanel = () => {
   const sectionEl = createEl('section', 'navPanel');
   const divEl = createEl('div', 'logo', logoSrc);
   const navEl = createEl('nav', 'nav');
@@ -39,18 +34,10 @@ const createNavPanel = (gameMode: Mode) => {
 };
 
 const createGamePanel = (gameMode: Mode) => {
-  console.log(`create: gamePanel`);
-
   const sectionEl = createEl('section', 'game-panel');
   const divImgEl = createEl('div', 'img-container', chewbaccaSrc, 'img-item');
   const divGameEl = createEl('div', 'game-container');
-  const divHeaderEl = createEl(
-    'div',
-    'headerEl',
-    '',
-    '',
-    gameHeaderText(gameMode),
-  );
+  const divHeaderEl = createEl('div', 'headerEl', '', '', '');
   const divRulesEl = createEl('div', 'mode-rules');
   const titleEl = createEl(
     'div',
@@ -59,13 +46,7 @@ const createGamePanel = (gameMode: Mode) => {
     'mode-rules_icon',
   );
   const spanTitleEl = createEl('span', '', '', '', 'Mode rules');
-  const rulesEl = createEl(
-    'div',
-    'mode-rules_content',
-    '',
-    '',
-    gameDescriptionText(gameMode),
-  );
+  const rulesEl = createEl('div', 'mode-rules_content', '', '', '');
   const divButtonsEl = createEl('div', 'buttons');
   const buttonRankingRulesEl = createEl(
     'button',
@@ -77,7 +58,7 @@ const createGamePanel = (gameMode: Mode) => {
   const buttonPlayEl = createEl('button', 'btn', '', '', 'Play the game');
 
   ///////
-  const rankingWrapper = createEl('div', 'ranking');
+  const ranking = createEl('div', 'ranking');
   const rankingTitle = createEl(
     'div',
     'ranking_title',
@@ -92,14 +73,29 @@ const createGamePanel = (gameMode: Mode) => {
     'Mode Ranking',
   );
   const rankingTableContent = createEl('div', 'rankingTableContent');
+  const answersEl = createEl('div', 'game-answers');
+  const buttonAnswer1El = createEl('button', 'btn-answer', '', '', '');
+  buttonAnswer1El.classList.add('answer1');
+  const buttonAnswer2El = createEl('button', 'btn-answer', '', '', '');
+  buttonAnswer2El.classList.add('answer2');
+  const buttonAnswer3El = createEl('button', 'btn-answer', '', '', '');
+  buttonAnswer3El.classList.add('answer3');
+  const buttonAnswer4El = createEl('button', 'btn-answer', '', '', '');
+  buttonAnswer4El.classList.add('answer4');
+
   rankingTitle.appendChild(rankingTitleText);
 
-  rankingWrapper.appendChild(rankingTitle);
-  rankingWrapper.appendChild(rankingTableContent);
+  ranking.appendChild(rankingTitle);
+  ranking.appendChild(rankingTableContent);
   //pomyslec nad tabelka
 
-  rankingWrapper.style.display = 'none';
+  ranking.style.display = 'none';
   ///////
+  answersEl.appendChild(buttonAnswer1El);
+  answersEl.appendChild(buttonAnswer2El);
+  answersEl.appendChild(buttonAnswer3El);
+  answersEl.appendChild(buttonAnswer4El);
+  answersEl.style.display = 'none';
 
   titleEl.appendChild(spanTitleEl);
   divRulesEl.appendChild(titleEl);
@@ -107,7 +103,9 @@ const createGamePanel = (gameMode: Mode) => {
   divGameEl.appendChild(divHeaderEl);
   divGameEl.appendChild(divRulesEl);
   //
-  divGameEl.appendChild(rankingWrapper);
+  divGameEl.appendChild(ranking);
+  //
+  divGameEl.appendChild(answersEl);
   //
   buttonRankingRulesEl.classList.add('ranking-rules');
   divButtonsEl.appendChild(buttonRankingRulesEl);
@@ -120,8 +118,6 @@ const createGamePanel = (gameMode: Mode) => {
 };
 
 const createTimerPanel = () => {
-  console.log(`gameMode: timerPanel`);
-
   const sectionEl = createEl(
     'section',
     'timerPanel',
@@ -131,19 +127,7 @@ const createTimerPanel = () => {
   );
   app.appendChild(sectionEl);
 };
-const gameDescriptionText = (gameMode: Mode) => {
-  return `You have two minutes (2m) to answer as many questions as possible. 
-  During the game on each question you need to select ${
-    gameMode === 'people' ? 'who' : 'what'
-  } from Star Wars is showed on the left (${answer} right now) from available options`;
-};
-const gameHeaderText = (gameMode: Mode) => {
-  return `MODE: ${
-    gameMode === 'people'
-      ? 'Who is this character?'
-      : 'What is it on the picture?'
-  }`;
-};
+
 const createEl = (
   elName: string,
   elClass?: string,
