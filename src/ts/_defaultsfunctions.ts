@@ -1,9 +1,12 @@
+import { getImageByName } from './_assets';
+import { imgItem } from './_consts';
 import { Mode } from './_defaults';
 import { getproperid } from './_functions';
 import { getElementName } from './_swapi';
 
 export const gameDescriptionText = async (mode: Mode) => {
   const id = getproperid(mode);
+  (imgItem as HTMLImageElement).src = getImageByName(`${mode}_${id}`);
   const answ = await getElementName(mode, id);
   //const answ = 'ads';
   return `You have two minutes (2m) to answer as many questions as possible. 
