@@ -6,6 +6,7 @@ import {
   gameAnswers,
   headerEl,
   modeRulesContent,
+  btnsAnswer,
   // btnsAnswer,
   // answers1,
   // answers2,
@@ -57,5 +58,10 @@ export async function playGame(mode: Mode) {
   displayAnswers(mode);
   // odpal timer
 
-  //event listener na buttony żeby spr poprawność i liczyć punkty
+  //event listener na buttony żeby spr poprawność i liczyć punkty i kolejne pyt
+  btnsAnswer.forEach(btn => {
+    btn.addEventListener('click', function () {
+      displayAnswers(mode);
+    });
+  });
 }
