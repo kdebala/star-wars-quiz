@@ -1,0 +1,58 @@
+@import '../../sass/reusable';
+
+.game-panel__answers {
+    width: 100%;
+    height: fit-content;
+    //justify-content: center;
+    //align-items: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-area: mode-rules;
+    border-radius: 1rem;
+    //box-shadow: 0px 5px 6px -1px rgba(0, 0, 0, 0.5);
+    gap: 3rem;
+    //padding: 2rem 0;
+    //margin: 2rem 0;
+    background: none;
+
+    .game-panel__item {
+        border-radius: 1.6rem;
+        display: inline-block;
+        font-size: 3rem;
+        height: fit-content;
+        padding: 3rem 2rem;
+
+        &:hover {
+            box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.25);
+            transition: all 0.1s ease-in-out;
+        }
+    }
+
+    .correct {
+        background-color: greenyellow;
+        //background: rgb(81, 252, 0);
+        box-shadow: 0px 4px 30px rgb(81, 252, 0);
+
+        &:hover {
+            box-shadow: 0px 4px 30px rgb(81, 252, 0);
+        }
+    }
+
+    .incorrect {
+        background-color: red;
+        box-shadow: 0px 4px 30px rgb(255, 0, 0);
+
+        &:hover {
+            box-shadow: 0px 4px 30px rgb(255, 0, 0);
+        }
+    }
+
+    .answer-1 {}
+
+    .answer-2 {}
+
+    .answer-3 {}
+
+    .answer-4 {}
+}

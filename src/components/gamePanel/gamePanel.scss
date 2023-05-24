@@ -1,0 +1,9 @@
+// section game-panel
+.game-panel {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr;
+    margin: 2rem;
+    grid-template-areas: 'img game';
+    column-gap: 4rem;
+}

@@ -5,9 +5,10 @@
     "noImplicitAny": true,
     "module": "ES6",
     "target": "ES6",
+    "lib": ["es6", "dom", "ES2017.String"],
     "allowJs": true
   },
-  "files": ["src/ts/index.ts"],
-  "include": ["src/assets", "custom.d.ts"],
+  "files": ["src/index.ts"],
+  "include": ["src/**/**/*", "custom.d.ts", "src/consts/.ts"],
   "exclude": ["node_modules", "dist"]
 }

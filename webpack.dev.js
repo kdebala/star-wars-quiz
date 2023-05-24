@@ -10,7 +10,7 @@ module.exports = merge(common, {
     open: true,
     port: 8080,
     host: 'localhost',
-    // host: '192.168.18.35',
+    //host: '192.168.1.128',
   },
   module: {
     rules: [

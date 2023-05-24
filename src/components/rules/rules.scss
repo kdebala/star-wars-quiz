@@ -1,0 +1,28 @@
+@import '../../sass/reusable';
+
+.game-panel__rules {
+    @include ranking-rules-content;
+
+    .game-panel__rules-title {
+        font-size: 2.5rem;
+        font-weight: 600; // ? not working
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .game-panel__rules-title-icon {
+        margin-right: 1rem;
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .game-panel__rules-title-text {}
+
+    .game-panel__rules-content {
+        margin-top: 2rem;
+        font-size: 2.3rem;
+        text-align: justify;
+        line-height: 4rem;
+    }
+}

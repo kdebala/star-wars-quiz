@@ -1,0 +1,11 @@
+//div that contains image
+.game-panel__image-container {
+    grid-area: img;
+    width: 100%;
+    height: 100%;
+
+    //game image
+    .game-panel__image {
+        height: max-content;
+    }
+}

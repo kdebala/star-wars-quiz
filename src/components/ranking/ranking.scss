@@ -1,0 +1,23 @@
+@import '../../sass/reusable';
+
+.game-panel__ranking {
+    @include ranking-rules-content;
+
+    .game-panel__ranking-title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .game-panel__ranking-title-icon {
+        width: 2.8rem;
+        margin-right: 1rem;
+    }
+
+    .game-panel__ranking-title-text {
+        font-size: 2.5rem;
+        font-weight: 600;
+    }
+
+    .game-panel__ranking-content {}
+}

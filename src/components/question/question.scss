@@ -1,0 +1,20 @@
+@import '../../sass/reusable';
+
+.game-panel__question {
+    @include border;
+    background-color: aliceblue;
+    font-size: 3rem;
+    width: 100%;
+    grid-area: headerEl;
+    align-self: center;
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    @media (min-width:2100px) {
+        height: 12rem;
+        font-size: 5rem;
+    }
+}

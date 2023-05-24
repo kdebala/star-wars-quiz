@@ -1,0 +1,11 @@
+.game-panel__game-container {
+    grid-area: game;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 5fr 1fr;
+    gap: 5rem;
+    grid-template-areas:
+        'headerEl headerEl'
+        'mode-rules mode-rules'
+        'btn btn';
+}
