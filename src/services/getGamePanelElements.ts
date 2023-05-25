@@ -5,7 +5,7 @@ import states from '../consts/states';
 // import states from '../consts/states';
 import { Mode } from '../consts/types';
 import getElementName from './_swapi';
-import { playGame } from './buttons/_buttons';
+import { playGame } from './_buttons';
 
 const getMaxValue = (mode: Mode) => {
   if (mode === 'people') {

@@ -27,10 +27,10 @@
 // } from '../../ts/_defaultsfunctions';
 // import { createTimerPanel } from '../timerPanel/_timer-panel';
 
-import selectors from '../../consts/selectors';
-import states from '../../consts/states';
-import { Mode } from '../../consts/types';
-import getGamePanelElements from '../getGamePanelElements';
+import selectors from '../consts/selectors';
+import states from '../consts/states';
+import { Mode } from '../consts/types';
+import getGamePanelElements from './getGamePanelElements';
 
 export async function playGame(mode: Mode) {
   console.log('play');
@@ -56,7 +56,4 @@ export async function playGame(mode: Mode) {
 
   //   createTimerPanel();
   //   Timer();
-
-  // funkcja playGame wykorzystuje w srodku displayAnswers,
-  //a displayAnswers wykorzystuje w środku playGame =  można tak?
 }
