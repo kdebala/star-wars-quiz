@@ -30,11 +30,15 @@ const setAnswer = (mode: Mode, id: number) => {
   answer = { mode, id };
 };
 
+const getAnswer = () => {
+  return answer;
+};
+
 export default {
   setGameMode,
   getGameMode,
   getRulesView,
   setRulesView,
-  answer,
+  getAnswer,
   setAnswer,
 };
