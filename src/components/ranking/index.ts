@@ -23,7 +23,7 @@ const createGamePanelRanking = () => {
   );
 
   gamePanelRankingTitle.appendChild(gamePanelRankingTitleText);
-
+  gamePanelRanking.classList.add('game-panel-box');
   gamePanelRanking.appendChild(gamePanelRankingTitle);
   gamePanelRanking.appendChild(gamePanelRankingContent);
   gamePanelRanking.style.display = 'none';

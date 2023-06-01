@@ -24,7 +24,7 @@ const createGamePanelRules = () => {
     '',
     '',
   );
-
+  gamePanelRules.classList.add('game-panel-box');
   gamePanelRulesTitle.appendChild(gamePanelRulesTitleText);
   gamePanelRules.appendChild(gamePanelRulesTitle);
   gamePanelRules.appendChild(gamePanelRulesContent);

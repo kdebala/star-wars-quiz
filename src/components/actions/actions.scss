@@ -5,11 +5,11 @@
     justify-content: space-between;
     grid-area: btn;
 
-    .btn {
+    .game-panel__btn {
         display: inline;
         width: 80%;
         //gap: 1px;
-        font-size: 2.5rem;
+        font-size: 4rem;
         font-weight: 600;
         height: 100%;
         font-family: inherit;
@@ -17,25 +17,31 @@
         cursor: pointer;
         border-radius: 1.6rem;
 
-        @media (min-width:2100px) {
-            font-size: 4rem;
-        }
-
-        &.play {
-            background: rgba(255, 0, 0, 0.8);
-            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-            text-transform: uppercase;
-            margin-left: 1rem;
-        }
-
         &:hover {
             @include border;
             transform: translate(0, -0.1rem);
             transition: all 0.1s ease-in-out;
         }
+
     }
+
+
+
+    .game-panel__play {
+        background: rgba(255, 0, 0, 0.8);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        text-transform: uppercase;
+        margin-left: 3rem;
+
+
+    }
+
+
+
 }
 
-.game-panel__switcher {}
-
-.game-panel__play {}
+// .game-panel__switcher {}
+// .game-panel__play {}
+// @media (min-width:2100px) {
+//     font-size: 4rem;
+// }

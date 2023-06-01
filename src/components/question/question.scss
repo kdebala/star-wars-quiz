@@ -3,18 +3,13 @@
 .game-panel__question {
     @include border;
     background-color: aliceblue;
-    font-size: 3rem;
+    font-size: 4.5rem;
+    font-weight: 500;
     width: 100%;
     grid-area: headerEl;
     align-self: center;
-    height: 10rem;
+    height: 12rem;
     display: flex;
     align-items: center;
     justify-content: center;
-
-
-    @media (min-width:2100px) {
-        height: 12rem;
-        font-size: 5rem;
-    }
 }

@@ -1,9 +1,14 @@
 // section game-panel
 .game-panel {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1.5fr 3.5fr;
     grid-template-rows: 1fr;
-    margin: 2rem;
+    //width: 80vw;
+    //height: 60%;
+    //margin: 5rem 25rem;
     grid-template-areas: 'img game';
-    column-gap: 4rem;
+    margin: 5rem 10rem;
+
+    column-gap: 8rem;
+    //height: fit-content;
 }

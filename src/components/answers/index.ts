@@ -19,6 +19,7 @@ const createGamePanelAnswers = () => {
   //pomyslec nad tabelka
 
   ///////
+  gamePanelAnswers.classList.add('game-panel-box');
   gamePanelAnswers.appendChild(buttonAnswer1);
   gamePanelAnswers.appendChild(buttonAnswer2);
   gamePanelAnswers.appendChild(buttonAnswer3);
