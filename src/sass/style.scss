@@ -5,6 +5,7 @@
 //@import '../components/gamePanel/ModeRules/modeRules';
 @import './reset';
 @import './reusable';
+@import './mediaqueries';
 //@import '../commponents/timerPanel/timer-panel';
 //@import '../components/gamePanel/Ranking/ranking';
 
@@ -17,6 +18,9 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
+  width: 100vw;
+  height: 80vh;
 }
 
 // .app {
