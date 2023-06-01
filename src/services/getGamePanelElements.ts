@@ -5,7 +5,7 @@ import states from '../consts/states';
 // import states from '../consts/states';
 import { Mode } from '../consts/types';
 import getElementName from './_swapi';
-import { playGame } from './_buttons';
+import playGame from './playGame';
 
 const getMaxValue = (mode: Mode) => {
   if (mode === 'people') {
@@ -28,7 +28,7 @@ const excludeNotAvailable = (mode: Mode) => {
 
 const getproperid = (mode: Mode) => {
   const maxValue = getMaxValue(mode);
-  const arr: number[] = []; // zawiera liczby do wylosowania
+  const arr: number[] = []; // numbers to choose from
 
   excludeNotAvailable(mode);
   // console.log(`================================================`);
@@ -58,11 +58,9 @@ const notAvailable = (mode: Mode) => {
   }
 };
 
-//////////////////////////////////////////////////////////
-
 function getFakeIds(mode: Mode) {
   const maxValue = getMaxValue(mode);
-  const arr: number[] = []; // zawiera liczby do wylosowania
+  const arr: number[] = []; // numbers to choose from
 
   for (let i = 1; i <= maxValue; i++) {
     if (!defaults.arrSelected.includes(i)) {
@@ -72,7 +70,7 @@ function getFakeIds(mode: Mode) {
   const firstFakeId = arr[Math.floor(Math.random() * arr.length)];
   let index = arr.indexOf(firstFakeId);
   if (index !== -1) {
-    arr.splice(index, 1); //wyrzucamy ten element
+    arr.splice(index, 1); //we take out this element
   }
   const secondFakeId = arr[Math.floor(Math.random() * arr.length)];
   index = arr.indexOf(secondFakeId);
@@ -93,23 +91,33 @@ const shuffleArray = (array: number[]) => {
 };
 
 const checkAnswer = async (e: Event) => {
-  const clickedButton = (e.target as Element).closest('.btn-answer');
+  const clickedButton = (e.target as Element).closest('.game-panel__item');
   if (!clickedButton) return;
 
-  clickedButton.parentElement.childNodes.forEach(btn => {
-    if (btn instanceof HTMLElement) {
-      btn.classList.remove('correct');
-      btn.classList.remove('incorrect');
-    }
-  });
-  const answ = await getElementName(states.answer.mode, states.answer.id);
-  //
+  const answ = await getElementName(
+    states.getAnswer().mode,
+    states.getAnswer().id,
+  );
+
   clickedButton.textContent === answ
-    ? clickedButton.classList.add('correct')
-    : clickedButton.classList.add('incorrect');
+    ? clickedButton.classList.add('game-panel__item--correct')
+    : clickedButton.classList.add('game-panel__item--incorrect');
+
+  await displayAnswers(states.getGameMode());
 };
 
-async function displayAnswers(mode: Mode) {
+const clearAnswers = () => {
+  selectors.btnsAnswer.childNodes.forEach(btn => {
+    if (btn instanceof HTMLElement) {
+      btn.classList.remove('game-panel__item--correct');
+      btn.classList.remove('game-panel__item--incorrect');
+    }
+  });
+};
+const delay = async (ms: number) => {
+  return new Promise(resolve => setTimeout(resolve, ms));
+};
+const displayAnswers = async (mode: Mode) => {
   //get ids of answers (id is correct, ids are fake)
   const id = getproperid(mode);
   const ids = getFakeIds(mode);
@@ -120,8 +128,22 @@ async function displayAnswers(mode: Mode) {
   //shuffle ids to randomize them on screen
   shuffleArray(ids);
 
-  // tutaj powinien pojawic sie spinner (jakies ladowanie czy cos) z flaga do ukryca
-
+  // spinner
+  // selectors.answer1.classList.add('game-panel__item--loading');
+  // selectors.answer2.classList.add('game-panel__item--loading');
+  // selectors.answer3.classList.add('game-panel__item--loading');
+  // selectors.answer4.classList.add('game-panel__item--loading');
+  //hide textContent of buttons
+  selectors.btnsAnswer.childNodes.forEach(btn => {
+    if (btn instanceof HTMLElement) {
+      btn.classList.add('game-panel__item--loading');
+      btn.textContent = '';
+      // if (btn.classList.contains('game-panel__item--loading')) {
+      //   btn.textContent = '';
+      // }
+    }
+  });
+  await delay(2000);
   //trying to get promise, in case of error calling itselft to start proces again (get new id's)
   try {
     //trying to get annswers for that questions
@@ -129,6 +151,9 @@ async function displayAnswers(mode: Mode) {
     const answ2 = await getElementName(mode, ids[1]); //np. "Luke Skywalker"
     const answ3 = await getElementName(mode, ids[2]);
     const answ4 = await getElementName(mode, ids[3]);
+
+    //clear
+    clearAnswers();
 
     //showing image of that correct answer
     if (selectors.image instanceof HTMLImageElement) {
@@ -144,20 +169,21 @@ async function displayAnswers(mode: Mode) {
     selectors.answer3.textContent = answ3;
     selectors.answer4.textContent = answ4;
 
-    // tutaj ukryć spinner
-
-    /////checking if the given answer is correct or no:
-
-    selectors.btnsAnswer.childNodes.forEach(btn =>
-      btn.addEventListener('click', function (e) {
-        checkAnswer(e);
-      }),
-    );
+    //hide spinner
+    selectors.btnsAnswer.childNodes.forEach(btn => {
+      if (btn instanceof HTMLElement) {
+        btn.classList.remove('game-panel__item--loading');
+      }
+    });
+    // selectors.answer1.classList.remove('game-panel__item--loading');
+    // selectors.answer2.classList.remove('game-panel__item--loading');
+    // selectors.answer3.classList.remove('game-panel__item--loading');
+    // selectors.answer4.classList.remove('game-panel__item--loading');
   } catch (error) {
     //in case of error, start over
     playGame(mode);
   }
-}
+};
 
 // =============================
 
@@ -187,4 +213,5 @@ export default {
   getQuestion,
   getRules,
   displayAnswers,
+  checkAnswer,
 };

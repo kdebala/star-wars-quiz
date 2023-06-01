@@ -3,14 +3,14 @@ import selector from '../consts/selectors';
 import gamePanelElements from './getGamePanelElements';
 
 const generateGamePanelContent = async (mode: Mode, isRulesView: boolean) => {
-  // ustaw question (zalezny od mode)
+  // display question (depends on mode)
 
   const question = gamePanelElements.getQuestion(mode);
   selector.question.textContent = question;
 
-  // ustaw content (zalezy od mode i zalezy jaki kontent)
+  // content
   if (isRulesView) {
-    console.log(`You're in Rules View : ${isRulesView}`);
+    //console.log(`You're in Rules View : ${isRulesView}`);
 
     selector.switcher.textContent = 'Hall of fame';
     if (selector.ranking instanceof HTMLElement) {
@@ -26,7 +26,7 @@ const generateGamePanelContent = async (mode: Mode, isRulesView: boolean) => {
     const content = await gamePanelElements.getRules(mode);
     selector.rulesContent.textContent = content;
   } else {
-    console.log(`You're in Hall of fame View : ${isRulesView}`);
+    //console.log(`You're in Hall of fame View : ${isRulesView}`);
     selector.switcher.textContent = 'Rules';
     if (selector.ranking instanceof HTMLElement) {
       selector.ranking.style.display = 'flex';
