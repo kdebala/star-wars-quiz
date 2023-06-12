@@ -143,7 +143,7 @@ const displayAnswers = async (mode: Mode) => {
       // }
     }
   });
-  await delay(2000);
+  //await delay(500);
   //trying to get promise, in case of error calling itselft to start proces again (get new id's)
   try {
     //trying to get annswers for that questions

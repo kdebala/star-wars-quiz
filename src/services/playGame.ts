@@ -1,15 +1,16 @@
-// import { createTimerPanel } from '../timerPanel/_timer-panel';
+//import { createTimerPanel } from '../timerPanel/_timer-panel';
 
+import createTimerPanel from '../components/timerPanel';
+import initializeClock from './startTimer';
 import selectors from '../consts/selectors';
-import states from '../consts/states';
+//import states from '../consts/states';
 import { Mode } from '../consts/types';
 import getGamePanelElements from './getGamePanelElements';
+import defaults from '../consts/defaults';
 
 const playGame = (mode: Mode) => {
   //update header
-  selectors.question.textContent = getGamePanelElements.getQuestion(
-    states.getGameMode(),
-  );
+  selectors.question.textContent = getGamePanelElements.getQuestion(mode);
   //hide ranking and modeRules divs and shows gameAnswers as grid
   (selectors.btnsAnswer as HTMLElement).style.display = 'grid';
   (selectors.ranking as HTMLElement).style.display = 'none';
@@ -17,10 +18,11 @@ const playGame = (mode: Mode) => {
 
   //display answers
   getGamePanelElements.displayAnswers(mode);
-  // timer
 
-  //   createTimerPanel();
-  //   Timer();
+  createTimerPanel();
+
+  initializeClock(defaults.maxTimeForQuiz);
+  //Timer();
 };
 
 export default playGame;
