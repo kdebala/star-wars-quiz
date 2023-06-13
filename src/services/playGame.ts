@@ -12,9 +12,17 @@ const playGame = (mode: Mode) => {
   //update header
   selectors.question.textContent = getGamePanelElements.getQuestion(mode);
   //hide ranking and modeRules divs and shows gameAnswers as grid
-  (selectors.btnsAnswer as HTMLElement).style.display = 'grid';
-  (selectors.ranking as HTMLElement).style.display = 'none';
-  (selectors.rules as HTMLElement).style.display = 'none';
+  if (selectors.btnsAnswer instanceof HTMLElement) {
+    selectors.btnsAnswer.style.display = 'grid';
+  }
+
+  if (selectors.ranking instanceof HTMLElement) {
+    selectors.ranking.style.display = 'none';
+  }
+
+  if (selectors.rules instanceof HTMLElement) {
+    selectors.rules.style.display = 'none';
+  }
 
   //display answers
   getGamePanelElements.displayAnswers(mode);
@@ -23,6 +31,12 @@ const playGame = (mode: Mode) => {
 
   initializeClock(defaults.maxTimeForQuiz);
   //Timer();
+  if (selectors.playBtn instanceof HTMLElement) {
+    selectors.playBtn.style.display = 'none';
+  }
+  if (selectors.switcher instanceof HTMLElement) {
+    selectors.switcher.style.display = 'none';
+  }
 };
 
 export default playGame;
