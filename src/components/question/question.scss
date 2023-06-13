@@ -3,12 +3,12 @@
 .game-panel__question {
     @include border;
     background-color: aliceblue;
-    font-size: 4.5rem;
+    font-size: 4rem;
     font-weight: 500;
     width: 100%;
     grid-area: headerEl;
     align-self: center;
-    height: 12rem;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
