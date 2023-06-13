@@ -1,3 +1,4 @@
+const maxTimeForQuiz = 120; //time in seconds
 const maxPeopleValue = 82;
 const maxVehiclesValue = 39;
 const maxStarshipsValue = 36;
@@ -21,4 +22,5 @@ export default {
   notAvailablePeople,
   notAvailableVehicles,
   notAvailableStarships,
+  maxTimeForQuiz,
 };

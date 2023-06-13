@@ -13,6 +13,9 @@ const switcher = document.querySelector('.game-panel__switcher');
 const playBtn = document.querySelector('.game-panel__play');
 const ranking = document.querySelector('.game-panel__ranking');
 const rules = document.querySelector('.game-panel__rules');
+const timerPanel = document.querySelector('.timer-panel');
+const textTimerArea = document.querySelector('.timer-panel__text-timer');
+const lightSaber = document.querySelector('.timer-panel__lightsaber');
 
 export default {
   question,
@@ -28,4 +31,7 @@ export default {
   ranking,
   rules,
   playBtn,
+  timerPanel,
+  textTimerArea,
+  lightSaber,
 };
