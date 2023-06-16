@@ -250,7 +250,8 @@
 
                 .game-panel__question {
                     font-size: 3.3rem;
-                    height: 8rem;
+                    margin-top: 3rem;
+                    padding: 2rem;
                 }
 
                 .game-panel-box {
@@ -281,7 +282,9 @@
 
 
             .game-panel__question {
-                font-size: 2.8rem;
+                font-size: 2.8rem !important;
+                //margin: 2rem 3rem 2rem 0;
+                padding: 4rem;
             }
 
             .game-panel__image {
@@ -300,7 +303,11 @@
 
             .game-panel__rules-content {
                 margin: 1.5rem;
+                line-height: 3.5rem !important;
+                padding: 2rem;
+
             }
+
         }
 
         .navigation-panel {
@@ -319,5 +326,100 @@
             .navigation-panel__item {
                 margin: 0.7rem;
             }
+        }
+
+        .timer-panel {
+            margin-top: 20rem;
+        }
+    }
+
+
+    @media screen and (max-width: 544px) {
+        .timer-panel {
+            margin-top: 25rem;
+        }
+
+        .game-panel__btn {
+            font-size: 1.8rem !important;
+        }
+
+    }
+
+    @media screen and (max-width: 580px) {
+        .timer-panel {
+            margin-top: 28rem;
+        }
+    }
+
+    @media screen and (max-width: 470px) {
+        .timer-panel {
+            margin-top: 30rem;
+        }
+
+        // .game-panel__rules-content {
+        //     // line-height: 1rem !important;
+        //     font-size: 1.2rem !important;
+        // }
+    }
+
+    @media screen and (max-width: 450px) {
+        .game-panel__question {
+            font-size: 2.2rem !important;
+        }
+
+        .timer-panel {
+            margin-top: 32rem;
+        }
+    }
+
+    @media screen and (max-width: 420px) {
+        .timer-panel {
+            margin-top: 30rem;
+        }
+
+        .game-panel {
+            margin: 2rem 2.5rem;
+        }
+    }
+
+    @media screen and (max-width: 400px) {
+        .timer-panel {
+            margin-top: 22rem;
+        }
+
+        .game-panel__question {
+            font-size: 1.8rem !important;
+        }
+
+        .game-panel__rules-content {
+            line-height: 1rem !important;
+            font-size: 1.5rem !important;
+            padding: 0.5rem !important;
+        }
+
+        .game-panel__btn {
+            font-size: 1.4rem !important;
+        }
+    }
+
+    @media screen and (max-width: 380px) {
+        // .timer-panel {
+        //     margin-top: 30rem;
+        // }
+
+        .game-panel__rules-content {
+            line-height: 0.8rem !important;
+            font-size: 1.3rem !important;
+            padding: 0.2rem !important;
+        }
+    }
+
+    @media screen and (max-width: 340px) {
+        // .game-panel__question {
+        //     font-size: 1rem !important;
+        // }
+
+        .timer-panel {
+            margin-top: 25rem;
         }
     }
