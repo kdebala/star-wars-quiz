@@ -1,7 +1,8 @@
 .timer-panel {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    //margin-top: 5rem;
+    //align-items: center;
     justify-content: center;
     width: 100%;
     height: 10rem;
@@ -49,7 +50,8 @@
 
 
 .timer-panel__text-timer {
-    margin: 1rem;
+    margin: 1rem auto;
+    height: 3rem;
     font-family: inherit;
     font-size: 4rem;
     color: #ff0000;
