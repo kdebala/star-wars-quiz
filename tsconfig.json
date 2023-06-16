@@ -3,8 +3,8 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": true,
-    "module": "ES6",
-    "target": "ES6",
+    "module": "ESNext",
+    "target": "ESNext",
     "lib": ["es6", "dom", "ES2017.String"],
     "allowJs": true
   },

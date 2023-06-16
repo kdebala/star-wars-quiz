@@ -7,6 +7,8 @@ import selectors from '../consts/selectors';
 import { Mode } from '../consts/types';
 import getGamePanelElements from './getGamePanelElements';
 import defaults from '../consts/defaults';
+//import states from '../consts/states';
+import chooseNavMode from './chooseNavMode';
 
 const playGame = (mode: Mode) => {
   //update header
@@ -37,6 +39,10 @@ const playGame = (mode: Mode) => {
   if (selectors.switcher instanceof HTMLElement) {
     selectors.switcher.style.display = 'none';
   }
+  // set playing to true
+  //states.setPlaying(true);
+  // while playing, remove event listeners from nav
+  selectors.menuContainer.removeEventListener('click', chooseNavMode);
 };
 
 export default playGame;

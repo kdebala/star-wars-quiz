@@ -28,8 +28,13 @@ const initializeClock = (maxTimeForQuiz: number) => {
 
     if (minutes <= 0 && seconds <= 0) {
       clearInterval(timeinterval);
-      // end game
-      //show ranking
+      // end game and show ranking
+      if (selectors.btnsAnswer instanceof HTMLElement) {
+        selectors.btnsAnswer.style.display = 'none';
+      }
+      if (selectors.ranking instanceof HTMLElement) {
+        selectors.ranking.style.display = 'block';
+      }
     }
   };
   const timeinterval = setInterval(updateClock, 1000);
