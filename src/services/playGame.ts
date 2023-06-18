@@ -39,9 +39,7 @@ const playGame = (mode: Mode) => {
   if (selectors.switcher instanceof HTMLElement) {
     selectors.switcher.style.display = 'none';
   }
-  // set playing to true
-  //states.setPlaying(true);
-  // while playing, remove event listeners from nav
+  // remove event listeners from nav
   selectors.menuContainer.removeEventListener('click', chooseNavMode);
 };
 
